@@ -6,6 +6,7 @@ import { globalErrorHandler } from "./src/Middlewares/globalErrorHandler.js";
 import AppError from "./Utils/AppError.js";
 import dbConnection from "./Database/dbConnection.js";
 import userRouter from "./src/Modules/user/user.router.js";
+import codeRouter from "./src/Modules/code/code.router.js";
 
 let app = express();
 const port = 3500;
@@ -13,6 +14,7 @@ const port = 3500;
 dbConnection();
 app.use(express.json());
 app.use("/user", userRouter);
+app.use("/code", codeRouter);
 app.use("*", (req, res, next) => {
   next(new AppError(`Invalid route ${req.originalUrl}`, 404));
 });

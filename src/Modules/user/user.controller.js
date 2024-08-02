@@ -6,7 +6,8 @@ import jwt from "jsonwebtoken";
 export const signUp = catchError(async (req, res, next) => {
   let user = new userModel(req.body);
   await user.save();
-  let token = jwt.sign(user, "CodeSenderSecreyKey");
+  console.log(user);
+  let token = jwt.sign({ user }, "CodeSenderSecreyKey");
   res.json({ message: "Register success ", user, token });
 });
 

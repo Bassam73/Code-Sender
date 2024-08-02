@@ -6,12 +6,11 @@ let schema = new mongoose.Schema({
     enum: ["node.js", "JavaScript"],
     required: true,
   },
-  title: {
+  code: {
     type: String,
-    trim: true,
     required: true,
   },
-  content: {
+  description: {
     type: String,
     trim: true,
     required: true,
